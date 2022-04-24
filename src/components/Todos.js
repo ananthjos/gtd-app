@@ -1,9 +1,24 @@
-import React from 'react'
+import React,{useEffect} from 'react';
+import {connect} from 'react-redux';
+import { getTodos } from '../actions/todosActions';
+import Todo from './Todo';
 
-function todos() {
+function Todos({todos,getTodos}) {
+
+  useEffect(()=>{
+     getTodos();
+  },[])
+
+  
+  
   return (
-    <div>todos</div>
+    <div>{todos.map((todo)=>{
+      return <Todo todo={todo} key={todo.id}/>
+    })}</div>
   )
 }
 
-export default todos
+const mapStateToProps = (state)=> ({todos:state.todo.todos})
+
+
+export default connect(mapStateToProps,{getTodos})(Todos);
