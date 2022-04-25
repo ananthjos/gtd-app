@@ -1,40 +1,16 @@
 {
-  "todos": [
+  "tasks": [
     {
-      "id": 1,
-      "title": "Doctors Appointment",
-      "day": "Feb 5th at 2:30pm",
-      "status": "pending"
-    },
-    {
-      "id": 2,
-      "title": "Meeting at School",
-      "day": "Feb 6th at 1:30pm",
-      "status": "pending"
-    },
-    {
+      "id": 6,
       "title": "walk the dog",
-      "day": "Feb 10th",
-      "status": "pending",
-      "id": 3
+      "day": "2022-04-02",
+      "status": ""
     },
     {
-      "title": "pay bill",
-      "day": "2022-04-01",
-      "status": "Pending",
-      "id": 4
-    },
-    {
-      "title": "pay bill",
-      "day": "2022-04-24",
-      "status": "Pending",
-      "id": 5
-    },
-    {
-      "title": "pay bill",
-      "day": "2022-04-30",
-      "status": "Pending",
-      "id": 6
+      "id": 7,
+      "title": "Buy Groceries",
+      "day": "2022-03-05",
+      "status": ""
     }
   ]
 }

@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux';
-import {addTodo} from '../actions/todosActions';
+import {addTask} from '../actions/tasksActions';
 
 
-function AddTodo({addTodo}) {
+
+function AddTask({addTask}) {
 
   const[title,setTitle] = useState("");
   const[day,setDay] = useState("");
@@ -17,40 +18,48 @@ function AddTodo({addTodo}) {
         return
       }
 
-      addTodo({title,day,status})
+      addTask({title,day,status})
 
       setDay("");
       setTitle("");
   }
 
   return (
-    <form className='add-form' onSubmit={(e)=>onSubmit(e)}>
-      <div className='form-control'>
-        <label htmlFor='title'>Title</label>
+    <form className='add-form' onSubmit={(e) => onSubmit(e)}>
+      <div>
+        <label htmlFor='title' className='form-label mb-2'>
+          Title
+        </label>
         <input
           type='text'
           name='title'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className='todo-input'
+          className='form-control mb-2'
         />
       </div>
-      <div className='form-control'>
-        <label htmlFor='day'>Day</label>
+      <div>
+       
+        <label htmlFor='day' className='form-label mb-2'>
+          Day
+        </label>
         <input
           type='date'
           name='day'
           value={day}
           onChange={(e) => setDay(e.target.value)}
-          className='todo-input'
+          className='form-control mb-2'
         />
       </div>
-
-      <button type='submit' className='btn btn-block' >Save</button>
+      <div className='d-grid gap-2 mb-4 mt-4'>
+        <button type='submit' className='btn btn-outline-success'>
+          Save
+        </button>
+      </div>
     </form>
   );
 }
 
 
 
-export default connect(null,{addTodo})(AddTodo)
+export default connect(null,{addTask})(AddTask)
