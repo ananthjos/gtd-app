@@ -5,6 +5,8 @@ import {
   DELETE_TASK,
   GET_TASK,
   FILTER_TASKS,
+  STATUS_COMPLETED,
+  STATUS_PENDING
 } from "./types";
 
 const url = "http://localhost:5000/tasks";
@@ -13,8 +15,8 @@ const url = "http://localhost:5000/tasks";
 export const getTasks = () => async (dispatch) => {
   let response = await fetch(`${url}`);
   let tasks = await response.json();
-  // tasks = filterTasks(tasks,'Pending')
   dispatch({ type: GET_TASKS, payload: tasks });
+  return tasks;
 };
 
 // API call to add a Task
@@ -58,7 +60,11 @@ export const getTask = (taskId) => async (dispatch) => {
   dispatch({ type: GET_TASK, payload: task });
 };
 
-export const filterTasks = (tasks, status) => {
-  tasks = tasks.filter((task) => task.status === status);
-  return tasks;
+export const filterTasks = (status)=>async(dispatch)=>{
+ let response = await fetch(`${url}`);
+ let tasks = await response.json();
+ if(status === STATUS_PENDING || status === STATUS_COMPLETED){
+   tasks = tasks.filter((task) => task.status === status);
+ }
+ dispatch({type:FILTER_TASKS,payload:tasks})
 };

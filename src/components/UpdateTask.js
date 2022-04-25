@@ -10,11 +10,12 @@ function UpdateTask({ task, getTask ,editTask}) {
     getTask(params.id);
   }, []);
 
+  console.log(task)
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState('');
-  const [day, setDay] = useState("");
-  const [status, setStatus] = useState("");
+  const [title, setTitle] = useState(task.title);
+  const [day, setDay] = useState(task.day);
+  const [status, setStatus] = useState(task.status);
 
   const onSubmit = (e) => {
     e.preventDefault();

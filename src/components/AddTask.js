@@ -1,14 +1,14 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux';
 import {addTask} from '../actions/tasksActions';
-
+import {STATUS_PENDING} from '../actions/types'
 
 
 function AddTask({addTask}) {
 
   const[title,setTitle] = useState("");
   const[day,setDay] = useState("");
-  const[status,setStatus] = useState("Pending");
+  const [status, setStatus] = useState(STATUS_PENDING);
 
   const onSubmit = (e)=>{
       e.preventDefault();

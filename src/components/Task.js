@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteTask, editTask, getTask } from "../actions/tasksActions";
+import {STATUS_COMPLETED,STATUS_PENDING} from '../actions/types';
 
 function Task({ task, deleteTask, editTask, getTask }) {
   const { title, day } = task;
@@ -12,6 +13,15 @@ function Task({ task, deleteTask, editTask, getTask }) {
   const onEdit = (e) => {
     // getTask(task.id);
   };
+
+  const changeTaskStatus = (e)=>{
+         if(task.status === STATUS_PENDING){
+           task.status = STATUS_COMPLETED
+         }else{
+           task.status = STATUS_PENDING
+         }
+         editTask(task);
+  }
   return (
     <div className='list-group-item '>
       <div className='row'>
@@ -39,7 +49,7 @@ function Task({ task, deleteTask, editTask, getTask }) {
 
           <div>
             <button
-              
+              onClick={(e)=>changeTaskStatus(e)}
               className='btn  btn-outline-success btn-sm'
             >
               {task.status}

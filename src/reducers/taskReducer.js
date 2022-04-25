@@ -38,6 +38,11 @@ export default (state = initialState,action)=>{
                         return task;
                     })
                   }
+                  case FILTER_TASKS :
+                    return {
+                      ...state,
+                      tasks:payload
+                    }
           default:
             return state;
       }

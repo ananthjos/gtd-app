@@ -3,4 +3,6 @@ export const ADD_TASK = 'ADD_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 export const EDIT_TASK = 'EDIT_TASK';
 export const GET_TASK = 'GET_TASK';
-export const FILTER_TASKS = 'FILTER_TASKS'
+export const FILTER_TASKS = 'FILTER_TASKS';
+export const STATUS_PENDING = 'pending';
+export const STATUS_COMPLETED = 'completed';
