@@ -10,9 +10,7 @@ function Task({ task, deleteTask, editTask, getTask }) {
   const onDelete = (e) => {
     deleteTask(task.id);
   };
-  const onEdit = (e) => {
-    // getTask(task.id);
-  };
+  
 
   const changeTaskStatus = (e)=>{
          if(task.status === STATUS_PENDING){
@@ -40,7 +38,6 @@ function Task({ task, deleteTask, editTask, getTask }) {
             <Link
               to={`/task/${task.id}`}
               className='fa fa-edit'
-              onClick={(e) => onEdit(e)}
             ></Link>
           </div>
           <div>

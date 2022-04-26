@@ -26,7 +26,7 @@ export default (state = initialState,action)=>{
               case GET_TASK :
                 return {
                   ...state,
-                  task:payload
+                  task: payload
                 }
                 case EDIT_TASK :
                   return {

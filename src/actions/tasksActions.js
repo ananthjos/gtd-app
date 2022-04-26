@@ -60,6 +60,7 @@ export const getTask = (taskId) => async (dispatch) => {
   dispatch({ type: GET_TASK, payload: task });
 };
 
+// API to filter tasks
 export const filterTasks = (status)=>async(dispatch)=>{
  let response = await fetch(`${url}`);
  let tasks = await response.json();

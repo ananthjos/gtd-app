@@ -1,16 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": 6,
-      "title": "walk the dog",
-      "day": "2022-04-02",
-      "status": "completed"
-    },
-    {
-      "id": 7,
-      "title": "Buy Groceries",
-      "day": "2022-03-05",
-      "status": "completed"
-    }
-  ]
+  "tasks": []
 }
