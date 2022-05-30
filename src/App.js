@@ -4,13 +4,18 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Home from "./components/Home";
 import UpdateTask from "./components/UpdateTask";
-import { getTasks } from "./actions/tasksActions";
+import { connect } from "react-redux";
+import { getTasks, getTask } from "./actions/tasksActions";
 import "./App.css";
-
-function App() {
+// DOG
+function App({ task }) {
   useEffect(() => {
     store.dispatch(getTasks());
   }, []);
+
+  const fetchTask = (id) => {
+    store.dispatch(getTask(id));
+  };
 
   return (
     <Provider store={store}>
@@ -18,12 +23,16 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/task/:id' element={<UpdateTask />} />
+            <Route
+              path='/task/:id'
+              element={<UpdateTask  fetchTask={fetchTask} />}
+            />
           </Routes>
         </div>
       </Router>
     </Provider>
   );
 }
+
 
 export default App;
